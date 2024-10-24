@@ -22,6 +22,4 @@ __pycache__/
 .env
 *.env
 
-# Ignore routes and service if you don’t want them tracked
-routes.py
-service/
+
