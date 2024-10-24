@@ -1,0 +1,27 @@
+# Flask environment file
+.flaskenv
+.idea/
+.DS_Store
+*#
+
+
+# Python virtual environment
+.venv/
+
+# Specific directories to ignore (modify as needed)
+Create/
+environment/
+the/
+virtual/
+
+# Python bytecode and cache directories
+__pycache__/
+*.pyc
+
+# Environment and configuration files
+.env
+*.env
+
+# Ignore routes and service if you don’t want them tracked
+routes.py
+service/
