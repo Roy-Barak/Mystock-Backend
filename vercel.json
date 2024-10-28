@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "Backend/app.py",
+      "use": "@vercel/python",
+      "config": {
+        "pythonVersion": "3.8",  // Specify the Python version you need
+        "venvPath": "./venv"   //Path to your virtual environment
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "Backend/app.py"
+    }
+  ],
+  "env": {
+    "PYTHON_VERSION": "3.8"  // or the version you want to use
+  },
+  "buildCommand": "python -m pip install -r requirements.txt"  // Custom build command
+}

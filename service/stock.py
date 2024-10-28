@@ -22,4 +22,7 @@ class Stock:
         """
         return self.data.get('currentPrice', None)
 
+
 print(Stock('^OEX').get_stock_info())
+
+print(Stock('^NYA').get_stock_info())
