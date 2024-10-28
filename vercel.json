@@ -9,9 +9,9 @@
   "routes": [
     {
       "src": "/(.*)",
-      // Match all requests starting with /api
+      
       "dest": "routes.py"
-      // Direct to your routes file
+      
     }
   ]
 }
