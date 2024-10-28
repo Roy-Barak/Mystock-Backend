@@ -2,26 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "Backend/routes.py",  // Set this to your routes file
-      "use": "@vercel/python",
-      "config": {
-        "pythonVersion": "3.8",  // Specify the Python version you need
-        "venvPath": "./Backend/venv"  // Path to your virtual environment
-      }
+      "src": "routes.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",  // Match all requests starting with /api
-      "dest": "Backend/routes.py"  // Direct to your routes file
-    },
-    {
-      "src": "/",  // The base route
-      "dest": "Backend/routes.py"  // Also points to your routes file
+      "src": "/(.*)",
+      // Match all requests starting with /api
+      "dest": "routes.py"
+      // Direct to your routes file
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.8"  // Specify your Python version
-  },
-  "buildCommand": "pip install -r Backend/requirements.txt"  // Path to requirements.txt
+  ]
 }
