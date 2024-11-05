@@ -122,7 +122,10 @@ def get_portfolio():
     # Find the user's portfolio by email
     portfolio = mongo.db.Portfolio.find_one({"email": email})
 
-    if portfolio:
+    if not portfolio:
+        return jsonify(message="Portfolio not found"), 404
+
+    else:
         # Extract balance and stocks (ensure portfolio is a dict)
         balance = portfolio.get('balance', 0)
         stocks = portfolio.get('portfolio', {})
@@ -139,8 +142,8 @@ def get_portfolio():
                 "buy_price": round(stock_data['buy_price'], 2),
                 "current_price": round(current_price, 2),
                 "previous_price": round(stock_price['previous_close'], 2),
-                "profit_number": round(stock_data['shares']*(current_price-stock_data['buy_price']), 2),
-                "profit_percentage": round(100 * (current_price-stock_data['buy_price'])/stock_data['buy_price'], 2)
+                "profit_number": round(stock_data['shares'] * (current_price - stock_data['buy_price']), 2),
+                "profit_percentage": round(100 * (current_price - stock_data['buy_price']) / stock_data['buy_price'], 2)
             }
 
         # Return the portfolio and balance as a JSON response
@@ -149,8 +152,6 @@ def get_portfolio():
             "balance": balance,
             "stocks": stock_info
         }), 200
-    else:
-        return jsonify(message="Portfolio not found"), 404
 
 
 @app.route('/user/sell-stock', methods=['POST'])
@@ -176,4 +177,4 @@ def sell_stock():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
