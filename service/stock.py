@@ -1,6 +1,5 @@
 import yfinance as yf
 
-
 class Stock:
     def __init__(self, symbol):
         self.symbol = symbol
@@ -23,6 +22,6 @@ class Stock:
         return self.data.get('currentPrice', None)
 
 
-print(Stock('^OEX').get_stock_info())
-
-print(Stock('^NYA').get_stock_info())
+# print(Stock('^OEX').get_stock_info())
+#
+# print(Stock('^NYA').get_stock_info())
